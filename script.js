@@ -15,8 +15,28 @@ let num2;
 function operate(operator, num1, num2){
     if (operator === "-") return subtract(num1, num2);
     else if (operator === "+") return add(num1, num2);
-    else if (operator === "*") return multiply(num1, num2);
+    else if (operator === "x") return multiply(num1, num2);
     else if (operator === "/") return divide(num1,num2);
+}
+
+function evaluate(str){
+    let operators = [" / ", " x ", " + ", " - "];
+    let ret = str;
+    for (let i = 0; i < operators.length; i++){
+        const operator = operators[i];
+        let str_i = str.indexOf(operator);
+        if (str_i != -1){
+            if (str.includes("=")) {
+                const equal_i = str.indexOf(" =");
+                ret = String(operate(str.substring(str_i+1, str_i+2), str.substring(0,str_i), str.substring(str_i+3, equal_i)) );
+                break;
+            }
+            ret = String(operate(str.substring(str_i+1, str_i+2), str.substring(0,str_i), str.substring(str_i+3)) );
+            break;
+        }
+    }
+    return ret;
+    
 }
 
 let buttonContainer = document.getElementById('button-container');
@@ -64,32 +84,35 @@ buttonContainer.addEventListener('click', (e) => {
                 small.textContent += "0";
                 break;
             case 'equal':
-                num2 = Number(big.textContent);
-                let result = operate(operator, num1, num2).toString();
+                let result = evaluate(small.textContent);
                 big.textContent = result
                 small.textContent += ` = ${result}`;
-                equalFlag = true;
+                num2 = Number(big.textContent);
                 break;
             case 'minus':
-                num1 = Number(big.textContent);
+                small.textContent = evaluate(small.textContent);
+                num1 = Number(small.textContent);
                 big.textContent = "";
                 operator = "-";
                 small.textContent = `${num1} - `;
                 break;
             case 'plus':
-                num1 = Number(big.textContent);
+                small.textContent = evaluate(small.textContent);
+                num1 = Number(small.textContent);
                 big.textContent = "";
                 operator = "+";
                 small.textContent = `${num1} + `;
                 break;
             case 'times':
-                num1 = Number(big.textContent);
+                small.textContent = evaluate(small.textContent);
+                num1 = Number(small.textContent);
                 big.textContent = "";
                 operator = "*";
                 small.textContent = `${num1} x `;
                 break;
             case 'divide':
-                num1 = Number(big.textContent);
+                small.textContent = evaluate(small.textContent);
+                num1 = Number(small.textContent);
                 big.textContent = "";
                 operator = "/";
                 small.textContent = `${num1} / `;
