@@ -14,8 +14,17 @@
     border: 1px solid black;
     font-size: 30px;
     display: flex;
-    justify-content: right;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-end; 
+    justify-content: space-between;
+}
+#small {
+    font-size: 30px;
+    color: grey;
+}
+
+#big {
+    font-size: 50px;
 }
 
 #button-container {

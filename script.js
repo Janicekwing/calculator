@@ -24,62 +24,80 @@ buttonContainer.addEventListener('click', (e) => {
         let target = e.target;
         switch (target.id) {
             case '1':
-                display.textContent += "1";
+                big.textContent += "1";
+                small.textContent += "1";
                 break;
             case '2':
-                display.textContent += "2";
+                big.textContent += "2";
+                small.textContent += "2";
                 break;
             case '3':
-                display.textContent += "3";
+                big.textContent += "3";
+                small.textContent += "3";
                 break;
             case '4':
-                display.textContent += "4";
+                big.textContent += "4";
+                small.textContent += "4";
                 break;
             case '5':
-                display.textContent += "5";
+                big.textContent += "5";
+                small.textContent += "5";
                 break;
             case '6':
-                display.textContent += "6";
+                big.textContent += "6";
+                small.textContent += "6";
                 break;
             case '7':
-                display.textContent += "7";
+                big.textContent += "7";
+                small.textContent += "7";
                 break;
             case '8':
-                display.textContent += "8";
+                big.textContent += "8";
+                small.textContent += "8";
                 break;
             case '9':
-                display.textContent += "9";
+                big.textContent += "9";
+                small.textContent += "9";
                 break;
             case '0':
-                display.textContent += "0";
+                big.textContent += "0";
+                small.textContent += "0";
                 break;
             case 'equal':
-                num2 = Number(display.textContent);
-                display.textContent = operate(operator, num1, num2).toString();
+                num2 = Number(big.textContent);
+                let result = operate(operator, num1, num2).toString();
+                big.textContent = result
+                small.textContent += ` = ${result}`;
+                equalFlag = true;
                 break;
             case 'minus':
-                num1 = Number(display.textContent);
-                display.textContent = "";
+                num1 = Number(big.textContent);
+                big.textContent = "";
                 operator = "-";
+                small.textContent = `${num1} - `;
                 break;
             case 'plus':
-                num1 = Number(display.textContent);
-                display.textContent = "";
+                num1 = Number(big.textContent);
+                big.textContent = "";
                 operator = "+";
+                small.textContent = `${num1} + `;
                 break;
             case 'times':
-                num1 = Number(display.textContent);
-                display.textContent = "";
+                num1 = Number(big.textContent);
+                big.textContent = "";
                 operator = "*";
+                small.textContent = `${num1} x `;
                 break;
             case 'divide':
-                num1 = Number(display.textContent);
-                display.textContent = "";
+                num1 = Number(big.textContent);
+                big.textContent = "";
                 operator = "/";
+                small.textContent = `${num1} / `;
                 break;
             case 'clear':
-                display.textContent = "";
-                break;
+                big.textContent = "";
+                small.textContent = "";
+                break;        
         }
     }
 );
