@@ -25,13 +25,18 @@ function evaluate(str){
     for (let i = 0; i < operators.length; i++){
         const operator = operators[i];
         let str_i = str.indexOf(operator);
+        
         if (str_i != -1){
+            let operator = str.substring(str_i+1, str_i+2);
+            let num1 = Number(str.substring(0,str_i));
             if (str.includes("=")) {
                 const equal_i = str.indexOf(" =");
-                ret = String(operate(str.substring(str_i+1, str_i+2), str.substring(0,str_i), str.substring(str_i+3, equal_i)) );
+                let num2 = Number(str.substring(str_i+3, equal_i));
+                ret = String(operate(str.substring(operator, num1, num2)));
                 break;
             }
-            ret = String(operate(str.substring(str_i+1, str_i+2), str.substring(0,str_i), str.substring(str_i+3)) );
+            let num2 = Number(str.substring(str_i+3));
+            ret = String(operate(operator, num1, num2) );
             break;
         }
     }
