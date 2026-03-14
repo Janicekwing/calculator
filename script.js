@@ -153,6 +153,7 @@ buttonContainer.addEventListener('click', (e) => {
                 big.textContent = "";
                 operator = "-";
                 small.textContent = `${num1} - `;
+                evaluated = false;
                 break;
             case 'plus':
                 small.textContent = evaluate(small.textContent);
@@ -160,6 +161,7 @@ buttonContainer.addEventListener('click', (e) => {
                 big.textContent = "";
                 operator = "+";
                 small.textContent = `${num1} + `;
+                evaluated = false;
                 break;
             case 'times':
                 small.textContent = evaluate(small.textContent);
@@ -167,6 +169,7 @@ buttonContainer.addEventListener('click', (e) => {
                 big.textContent = "";
                 operator = "x";
                 small.textContent = `${num1} x `;
+                evaluated = false;
                 break;
             case 'divide':
                 small.textContent = evaluate(small.textContent);
@@ -174,6 +177,7 @@ buttonContainer.addEventListener('click', (e) => {
                 big.textContent = "";
                 operator = "/";
                 small.textContent = `${num1} / `;
+                evaluated = false;
                 break;
             case 'clear':
                 big.textContent = "";
