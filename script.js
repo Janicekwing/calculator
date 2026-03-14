@@ -29,10 +29,10 @@ function evaluate(str){
         if (str_i != -1){
             let operator = str.substring(str_i+1, str_i+2);
             let num1 = Number(str.substring(0,str_i));
-            if (str.includes("=")) {
+            if (str.includes(" =")) {
                 const equal_i = str.indexOf(" =");
                 let num2 = Number(str.substring(str_i+3, equal_i));
-                ret = String(operate(str.substring(operator, num1, num2)));
+                ret = String(operate(operator, num1, num2));
                 break;
             }
             let num2 = Number(str.substring(str_i+3));
@@ -112,7 +112,7 @@ buttonContainer.addEventListener('click', (e) => {
                 small.textContent = evaluate(small.textContent);
                 num1 = Number(small.textContent);
                 big.textContent = "";
-                operator = "*";
+                operator = "x";
                 small.textContent = `${num1} x `;
                 break;
             case 'divide':
