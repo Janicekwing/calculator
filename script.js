@@ -9,6 +9,7 @@ const divide = (a,b) => a / b;
 let num1;
 let operator;
 let num2;
+let evaluated = false;
 
 // Create a new function operate that takes an operator and two numbers and then calls one of the above functions on the numbers.
 
@@ -49,42 +50,93 @@ buttonContainer.addEventListener('click', (e) => {
         let target = e.target;
         switch (target.id) {
             case '1':
+                if (evaluated) {
+                    big.textContent = "";
+                    small.textContent = "";
+                    evaluated = false;
+                }
                 big.textContent += "1";
                 small.textContent += "1";
                 break;
             case '2':
+                if (evaluated) {
+                    big.textContent = "";
+                    small.textContent = "";
+                    evaluated = false;
+                }
                 big.textContent += "2";
                 small.textContent += "2";
                 break;
             case '3':
+                if (evaluated) {
+                    big.textContent = "";
+                    small.textContent = "";
+                    evaluated = false;
+                }
                 big.textContent += "3";
                 small.textContent += "3";
                 break;
             case '4':
+                if (evaluated) {
+                    big.textContent = "";
+                    small.textContent = "";
+                    evaluated = false;
+                }
                 big.textContent += "4";
                 small.textContent += "4";
                 break;
             case '5':
+                if (evaluated) {
+                    big.textContent = "";
+                    small.textContent = "";
+                    evaluated = false;
+                }
                 big.textContent += "5";
                 small.textContent += "5";
+                
                 break;
             case '6':
+                if (evaluated) {
+                    big.textContent = "";
+                    small.textContent = "";
+                    evaluated = false;
+                }
                 big.textContent += "6";
                 small.textContent += "6";
                 break;
             case '7':
+                if (evaluated) {
+                    big.textContent = "";
+                    small.textContent = "";
+                    evaluated = false;
+                }
                 big.textContent += "7";
                 small.textContent += "7";
                 break;
             case '8':
+                if (evaluated) {
+                    big.textContent = "";
+                    small.textContent = "";
+                    evaluated = false;
+                }
                 big.textContent += "8";
                 small.textContent += "8";
                 break;
             case '9':
+                if (evaluated) {
+                    big.textContent = "";
+                    small.textContent = "";
+                    evaluated = false;
+                }
                 big.textContent += "9";
                 small.textContent += "9";
                 break;
             case '0':
+                if (evaluated) {
+                    big.textContent = "";
+                    small.textContent = "";
+                    evaluated = false;
+                }
                 big.textContent += "0";
                 small.textContent += "0";
                 break;
@@ -93,6 +145,7 @@ buttonContainer.addEventListener('click', (e) => {
                 big.textContent = result
                 small.textContent += ` = ${result}`;
                 num2 = Number(big.textContent);
+                evaluated = true;
                 break;
             case 'minus':
                 small.textContent = evaluate(small.textContent);
